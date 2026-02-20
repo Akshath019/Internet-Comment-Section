@@ -1,12 +1,5 @@
 {
   "framework": "nextjs",
   "regions": ["iad1"],
-  "buildCommand": "npx prisma generate && next build",
-  "env": {
-    "DATABASE_URL": "@database_url",
-    "NEXTAUTH_SECRET": "@nextauth_secret",
-    "NEXTAUTH_URL": "@nextauth_url",
-    "GOOGLE_CLIENT_ID": "@google_client_id",
-    "GOOGLE_CLIENT_SECRET": "@google_client_secret"
-  }
+  "buildCommand": "npx prisma generate && npx prisma migrate deploy && next build"
 }
