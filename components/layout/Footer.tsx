@@ -10,9 +10,9 @@ export default function Footer() {
         marginTop: '40px',
       }}
     >
-      internet comment section · open source ·{' '}
-      <a href="https://github.com" style={{ color: '#1a5276' }}>
-        github
+      internet comment section · By Akshath ·{' '}
+      <a href="https://github.com/Akshath019" style={{ color: '#1a5276' }}>
+        github Profile
       </a>
     </footer>
   )
