@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  --color-cf-blue: #1a5276;
+  --color-cf-blue-dark: #154360;
+  --color-cf-upvote: #27ae60;
+  --color-cf-downvote: #c0392b;
+  --color-cf-muted: #888888;
+  --color-cf-border: #cccccc;
+  --color-cf-bg-alt: #f6f6f6;
+  --color-cf-link: #1a5276;
+}
+
+* {
+  font-family: var(--font-mono);
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 13px;
+}
+
+body {
+  background: #fff;
+  color: #222;
+  margin: 0;
+}
+
+a {
+  color: var(--color-cf-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Comment indent lines */
+.comment-indent {
+  border-left: 2px solid var(--color-cf-border);
+}
+
+.comment-indent:hover {
+  border-left-color: var(--color-cf-blue);
+}
