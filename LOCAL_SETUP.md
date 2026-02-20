@@ -96,20 +96,6 @@ GOOGLE_CLIENT_SECRET=""
 
 ---
 
-## Step 3 — Google OAuth (optional for local dev)
-
-You can **skip this** and just use email/password login locally.
-
-If you want Google login too:
-1. Go to [console.cloud.google.com](https://console.cloud.google.com)
-2. Create a project (name it anything)
-3. Go to **APIs & Services** → **OAuth consent screen** → set to External
-4. Go to **Credentials** → **Create Credentials** → **OAuth 2.0 Client ID**
-5. Application type: **Web application**
-6. Authorized redirect URIs: add `http://localhost:3000/api/auth/callback/google`
-7. Copy the Client ID and Client Secret into your `.env`
-
----
 
 ## Step 4 — Set up the database
 
