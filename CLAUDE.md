@@ -12,7 +12,7 @@ This file tells Claude Code everything about this project so it can help you eff
 - Reddit-style threaded comments with collapse/expand, voting, and sorting
 - Old-school Codeforces-style UI: monospace font, dense tables, no rounded corners
 
----
+-----
 
 ## Tech Stack
 
