@@ -36,8 +36,8 @@ function LoginForm() {
     router.refresh()
   }
 
-  async function handleGoogle() {
-    await signIn('google', { callbackUrl })
+  async function handleGitHub() {
+    await signIn('github', { callbackUrl })
   }
 
   return (
@@ -49,14 +49,15 @@ function LoginForm() {
         </h1>
       </div>
 
-      {/* Google */}
+      {/* GitHub */}
       <button
-        onClick={handleGoogle}
+        onClick={handleGitHub}
         style={{
           width: '100%',
           padding: '10px',
-          border: '1px solid #ccc',
-          background: '#f6f6f6',
+          border: '1px solid #222',
+          background: '#24292e',
+          color: '#fff',
           cursor: 'pointer',
           fontFamily: 'inherit',
           fontSize: '13px',
@@ -65,9 +66,10 @@ function LoginForm() {
           alignItems: 'center',
           justifyContent: 'center',
           gap: '8px',
+          letterSpacing: '0.02em',
         }}
       >
-        <span>G</span> continue with Google
+        ⌥ continue with GitHub
       </button>
 
       <div style={{ textAlign: 'center', color: '#888', fontSize: '11px', marginBottom: '16px' }}>

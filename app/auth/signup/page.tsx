@@ -48,8 +48,8 @@ export default function SignupPage() {
     router.refresh()
   }
 
-  async function handleGoogle() {
-    await signIn('google', { callbackUrl: '/' })
+  async function handleGitHub() {
+    await signIn('github', { callbackUrl: '/' })
   }
 
   return (
@@ -61,21 +61,23 @@ export default function SignupPage() {
         </h1>
       </div>
 
-      {/* Google */}
+      {/* GitHub */}
       <button
-        onClick={handleGoogle}
+        onClick={handleGitHub}
         style={{
           width: '100%',
           padding: '10px',
-          border: '1px solid #ccc',
-          background: '#f6f6f6',
+          border: '1px solid #222',
+          background: '#24292e',
+          color: '#fff',
           cursor: 'pointer',
           fontFamily: 'inherit',
           fontSize: '13px',
           marginBottom: '16px',
+          letterSpacing: '0.02em',
         }}
       >
-        G &nbsp; continue with Google
+        ⌥ continue with GitHub
       </button>
 
       <div style={{ textAlign: 'center', color: '#888', fontSize: '11px', marginBottom: '16px' }}>

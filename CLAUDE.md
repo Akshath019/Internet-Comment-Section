@@ -144,8 +144,8 @@ npm run db:seed      # seed example data
 DATABASE_URL        PostgreSQL connection string (from Railway)
 NEXTAUTH_SECRET     Random 32-byte secret (openssl rand -base64 32)
 NEXTAUTH_URL        Full URL of the app (http://localhost:3000 for dev)
-GOOGLE_CLIENT_ID    From Google Cloud Console
-GOOGLE_CLIENT_SECRET From Google Cloud Console
+GITHUB_CLIENT_ID    From github.com/settings/developers → OAuth Apps
+GITHUB_CLIENT_SECRET From github.com/settings/developers → OAuth Apps
 ```
 
 ---

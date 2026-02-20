@@ -13,7 +13,7 @@ export function normalizeUrl(raw: string): string | null {
     // Only http/https
     if (!['http:', 'https:'].includes(url.protocol)) return null
 
-    // Force https
+    // Force https force https , 
     url.protocol = 'https:'
 
     // Lowercase host

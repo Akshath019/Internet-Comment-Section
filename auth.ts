@@ -1,16 +1,16 @@
 import NextAuth from 'next-auth'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import Credentials from 'next-auth/providers/credentials'
-import Google from 'next-auth/providers/google'
+import GitHub from 'next-auth/providers/github'
 import { db } from '@/lib/db'
 import bcrypt from 'bcryptjs'
 
-async function ensureUsername(userId: string, email: string): Promise<string | null> {
+async function ensureUsername(userId: string, hint: string): Promise<string | null> {
   const user = await db.user.findUnique({ where: { id: userId }, select: { username: true } })
   if (user?.username) return user.username
 
-  // Auto-generate from email prefix
-  const base = email
+  // hint is GitHub username or email prefix — clean it up
+  const base = hint
     .split('@')[0]
     .toLowerCase()
     .replace(/[^a-z0-9_]/g, '_')
@@ -30,9 +30,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(db),
   session: { strategy: 'jwt' },
   providers: [
-    Google({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    GitHub({
+      clientId: process.env.GITHUB_CLIENT_ID!,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
     }),
     Credentials({
       async authorize(credentials) {
@@ -51,10 +51,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, profile }) {
       if (user?.id) {
         token.sub = user.id
-        const username = await ensureUsername(user.id, user.email ?? '')
+        // Use GitHub username if available, otherwise fall back to email prefix
+        const hint = (profile as { login?: string })?.login ?? user.email ?? ''
+        const username = await ensureUsername(user.id, hint)
         token.username = username as string | null
       }
       return token

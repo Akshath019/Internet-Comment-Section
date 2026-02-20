@@ -5,7 +5,7 @@ import { auth } from '@/auth'
 
 const schema = z.object({
   threadId: z.string().min(1),
-  parentId: z.string().optional(),
+  parentId: z.string().nullish(),
   content: z.string().min(1, 'Comment cannot be empty').max(10000).trim(),
 })
 
