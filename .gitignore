@@ -5,6 +5,11 @@
 /.next/
 /out/
 
+
+CLAUDE.md
+DEPLOY.md
+LOCAL_SETUP.md
+sessionid
 # env
 .env
 .env*.local
