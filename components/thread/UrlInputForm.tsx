@@ -45,9 +45,10 @@ export default function UrlInputForm() {
           type="text"
           value={url}
           onChange={e => setUrl(e.target.value)}
-          placeholder="https://youtube.com/watch?v=... or any URL"
+          placeholder="paste any URL..."
           style={{
             flex: 1,
+            minWidth: 0,
             border: '2px solid #cccccc',
             borderRight: 'none',
             padding: '10px 12px',

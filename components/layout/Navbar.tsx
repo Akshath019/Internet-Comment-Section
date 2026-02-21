@@ -24,6 +24,7 @@ export default function Navbar({ session }: Props) {
           alignItems: 'center',
           justifyContent: 'space-between',
           height: '40px',
+          minWidth: 0,
         }}
       >
         {/* Logo */}
@@ -35,17 +36,21 @@ export default function Navbar({ session }: Props) {
             fontSize: '13px',
             letterSpacing: '0.05em',
             textDecoration: 'none',
+            flexShrink: 0,
           }}
         >
-          INTERNET COMMENT SECTION
+          {/* Full title on desktop */}
+          <span className="mobile-hide">INTERNET COMMENT SECTION</span>
+          {/* Abbreviated on mobile */}
+          <span className="mobile-only">ICS</span>
         </Link>
 
         {/* Nav links + auth */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '12px' }}>
-          <Link href="/explore" style={{ color: '#cce5ff', textDecoration: 'none' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '12px', minWidth: 0 }}>
+          <Link href="/explore" className="mobile-hide" style={{ color: '#cce5ff', textDecoration: 'none' }}>
             explore
           </Link>
-          <Link href="/" style={{ color: '#cce5ff', textDecoration: 'none' }}>
+          <Link href="/" className="mobile-hide" style={{ color: '#cce5ff', textDecoration: 'none' }}>
             join / create
           </Link>
           <NavActions session={session} />

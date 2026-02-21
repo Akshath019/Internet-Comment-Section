@@ -44,7 +44,7 @@ export default function ThreadHeader({ thread }: Props) {
       )}
 
       {/* URL */}
-      <div style={{ fontSize: '12px', color: '#888', marginTop: '4px' }}>
+      <div style={{ fontSize: '12px', color: '#888', marginTop: '4px', wordBreak: 'break-all' }}>
         <a
           href={thread.normalizedUrl}
           target="_blank"

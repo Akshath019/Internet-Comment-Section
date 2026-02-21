@@ -67,11 +67,11 @@ export default async function HomePage() {
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
             <thead>
               <tr style={{ background: '#f6f6f6', borderBottom: '1px solid #ccc' }}>
-                <th style={{ padding: '6px 12px', textAlign: 'right', width: '40px', fontSize: '11px', color: '#888', fontWeight: 400 }}>#</th>
-                <th style={{ padding: '6px 12px', textAlign: 'left', width: '120px', fontSize: '11px', color: '#888', fontWeight: 400 }}>domain</th>
+                <th className="mobile-hide" style={{ padding: '6px 12px', textAlign: 'right', width: '40px', fontSize: '11px', color: '#888', fontWeight: 400 }}>#</th>
+                <th className="mobile-hide" style={{ padding: '6px 12px', textAlign: 'left', width: '120px', fontSize: '11px', color: '#888', fontWeight: 400 }}>domain</th>
                 <th style={{ padding: '6px 12px', textAlign: 'left', fontSize: '11px', color: '#888', fontWeight: 400 }}>title / url</th>
-                <th style={{ padding: '6px 12px', textAlign: 'right', width: '80px', fontSize: '11px', color: '#888', fontWeight: 400 }}>comments</th>
-                <th style={{ padding: '6px 12px', textAlign: 'left', width: '100px', fontSize: '11px', color: '#888', fontWeight: 400 }}>posted</th>
+                <th className="mobile-hide" style={{ padding: '6px 12px', textAlign: 'right', width: '80px', fontSize: '11px', color: '#888', fontWeight: 400 }}>comments</th>
+                <th className="mobile-hide" style={{ padding: '6px 12px', textAlign: 'left', width: '100px', fontSize: '11px', color: '#888', fontWeight: 400 }}>posted</th>
               </tr>
             </thead>
             <tbody>

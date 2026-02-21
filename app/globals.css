@@ -45,3 +45,15 @@ a:hover {
 .comment-indent:hover {
   border-left-color: var(--color-cf-blue);
 }
+
+/* ── Responsive utilities ──────────────────────── */
+/* .mobile-hide  → visible on desktop, hidden on mobile  */
+/* .mobile-only  → visible on mobile, hidden on desktop  */
+
+@media (max-width: 600px) {
+  .mobile-hide { display: none !important; }
+}
+
+@media (min-width: 601px) {
+  .mobile-only { display: none !important; }
+}

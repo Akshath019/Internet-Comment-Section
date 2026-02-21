@@ -9,6 +9,7 @@ interface Props {
 
 export default function ThreadCard({ thread, rank }: Props) {
   const title = thread.title ?? thread.normalizedUrl
+  const timeAgo = formatDistanceToNow(new Date(thread.createdAt), { addSuffix: true })
 
   return (
     <tr
@@ -17,7 +18,9 @@ export default function ThreadCard({ thread, rank }: Props) {
         backgroundColor: rank % 2 === 0 ? '#f6f6f6' : '#fff',
       }}
     >
+      {/* # rank — hidden on mobile */}
       <td
+        className="mobile-hide"
         style={{
           padding: '8px 12px',
           color: '#888',
@@ -28,7 +31,9 @@ export default function ThreadCard({ thread, rank }: Props) {
       >
         {rank}
       </td>
-      <td style={{ padding: '8px 12px', width: '120px' }}>
+
+      {/* Domain — hidden on mobile (shown inline in title cell) */}
+      <td className="mobile-hide" style={{ padding: '8px 12px', width: '120px' }}>
         <span
           style={{
             fontSize: '11px',
@@ -40,6 +45,8 @@ export default function ThreadCard({ thread, rank }: Props) {
           {thread.domain}
         </span>
       </td>
+
+      {/* Title — always visible */}
       <td style={{ padding: '8px 12px' }}>
         <Link
           href={`/t/${thread.id}`}
@@ -56,15 +63,32 @@ export default function ThreadCard({ thread, rank }: Props) {
             href={thread.normalizedUrl}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: '#aaa' }}
+            style={{ color: '#aaa', wordBreak: 'break-all' }}
           >
             {thread.normalizedUrl.length > 60
               ? thread.normalizedUrl.slice(0, 60) + '…'
               : thread.normalizedUrl}
           </a>
         </div>
+
+        {/* Mobile-only: domain + comments + time shown inline */}
+        <div
+          className="mobile-only"
+          style={{ marginTop: '5px', fontSize: '11px', color: '#888' }}
+        >
+          <span style={{ background: '#e8e8e8', color: '#444', padding: '1px 5px', marginRight: '8px' }}>
+            {thread.domain}
+          </span>
+          <span style={{ color: thread.commentCount > 0 ? '#1a5276' : '#888', fontWeight: thread.commentCount > 0 ? 700 : 400, marginRight: '8px' }}>
+            {thread.commentCount} {thread.commentCount === 1 ? 'comment' : 'comments'}
+          </span>
+          <span>{timeAgo}</span>
+        </div>
       </td>
+
+      {/* Comments count — hidden on mobile */}
       <td
+        className="mobile-hide"
         style={{
           padding: '8px 12px',
           textAlign: 'right',
@@ -77,7 +101,10 @@ export default function ThreadCard({ thread, rank }: Props) {
       >
         {thread.commentCount}
       </td>
+
+      {/* Posted — hidden on mobile */}
       <td
+        className="mobile-hide"
         style={{
           padding: '8px 12px',
           fontSize: '11px',
@@ -86,7 +113,7 @@ export default function ThreadCard({ thread, rank }: Props) {
           width: '100px',
         }}
       >
-        {formatDistanceToNow(new Date(thread.createdAt), { addSuffix: true })}
+        {timeAgo}
       </td>
     </tr>
   )
