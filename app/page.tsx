@@ -36,7 +36,7 @@ export default async function HomePage() {
           INTERNET COMMENT SECTION
         </h1>
         <p style={{ fontSize: '12px', color: '#888', marginBottom: '20px' }}>
-          paste any URL · discuss anything · no algorithm
+          paste any URL · discuss anything · no restriction
         </p>
         <div style={{ maxWidth: '600px', margin: '0 auto' }}>
           <UrlInputForm />
