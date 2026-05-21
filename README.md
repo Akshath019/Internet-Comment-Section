@@ -2,7 +2,7 @@
 
 A universal discussion layer for any URL on the internet. Paste any link — get a thread. Anyone can read, you must be logged in to comment.
 
-**Live:** [Click Here](https://internet-comment-section.vercel.app/)
+
 
 ---
 
